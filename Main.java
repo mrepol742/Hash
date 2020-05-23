@@ -8,17 +8,21 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 		System.out.println("Welcome to DROID_HASH\n\n\n");
 		System.out.println("Enter the plain text:");
-		String text = scanner.next();
+		String text = scanner.nextLine();
 		if (text.length() == 0) {
 			System.out.println("\nErr no input found!");
-			return;
+			main(new String[]{""});
 		}
         byte[] salt = getSalt();
+		System.out.println("\nSalt:");
+		System.out.println(salt);
 		System.out.println("\nOutput:\n");
-        System.out.println(getSecurePassword(text, salt, "SHA-1"));
-		System.out.println(getSecurePassword(text, salt, "SHA-256"));
-		System.out.println(getSecurePassword(text, salt, "SHA-384"));
-		System.out.println(getSecurePassword(text, salt, "SHA-512"));
+		System.out.println("MD5: " +getSecurePassword(text, salt, "MD5"));
+        System.out.println("SHA-1: " +getSecurePassword(text, salt, "SHA-1"));
+		System.out.println("SHA-224: " +getSecurePassword(text, salt, "SHA-224"));
+		System.out.println("SHA-256: " +getSecurePassword(text, salt, "SHA-256"));
+		System.out.println("SHA-384: " +getSecurePassword(text, salt, "SHA-384"));
+		System.out.println("SHA-512: "+ getSecurePassword(text, salt, "SHA-512"));
     }
 
     private static String getSecurePassword(String passwordToHash, byte[] salt, String message)
@@ -41,7 +45,7 @@ public class Main {
         }
         return generatedPassword;
     }
-	
+
     private static byte[] getSalt() throws NoSuchAlgorithmException
     {
         SecureRandom sr = SecureRandom.getInstance("SHA1PRNG");
@@ -50,4 +54,3 @@ public class Main {
         return salt;
     }
 }
- 
