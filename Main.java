@@ -6,7 +6,7 @@ public class Main {
     public static void main(String[] args) throws NoSuchAlgorithmException 
     {
         Scanner scanner = new Scanner(System.in);
-		System.out.println("Welcome to the World of Hash\n\n\n");
+		System.out.println("Welcome to the World of Hash\n");
 		System.out.print("Enter plain text: ");
 		String text = scanner.nextLine();
 		if (text.length() == 0) {
@@ -16,7 +16,7 @@ public class Main {
         byte[] salt = getSalt();
 		System.out.print("\nSalt: ");
 		System.out.println(salt);
-		System.out.println("\nOutput:\n");
+		System.out.println("\n ---- Output ----\n");
 		System.out.println("MD5: " +getSecurePassword(text, salt, "MD5"));
         System.out.println("SHA-1: " +getSecurePassword(text, salt, "SHA-1"));
 		System.out.println("SHA-224: " +getSecurePassword(text, salt, "SHA-224"));
