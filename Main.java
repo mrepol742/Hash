@@ -6,15 +6,15 @@ public class Main {
     public static void main(String[] args) throws NoSuchAlgorithmException 
     {
         Scanner scanner = new Scanner(System.in);
-		System.out.println("Welcome to DROID_HASH\n\n\n");
-		System.out.println("Enter the plain text:");
+		System.out.println("Welcome to the World of Hash\n\n\n");
+		System.out.print("Enter plain text: ");
 		String text = scanner.nextLine();
 		if (text.length() == 0) {
 			System.out.println("\nErr no input found!");
 			main(new String[]{""});
 		}
         byte[] salt = getSalt();
-		System.out.println("\nSalt:");
+		System.out.print("\nSalt: ");
 		System.out.println(salt);
 		System.out.println("\nOutput:\n");
 		System.out.println("MD5: " +getSecurePassword(text, salt, "MD5"));
