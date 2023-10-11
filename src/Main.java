@@ -15,7 +15,9 @@ public class Main {
 		}
         byte[] salt = getSalt();
 		System.out.print("\nSalt: ");
-		System.out.println(salt);
+        for (int i = 0; i < salt.length; i++) {
+            System.out.print(salt[i] +" ");
+        }
 		System.out.println("\n ---- Output ----\n");
 		System.out.println("MD5: " +getSecurePassword(text, salt, "MD5"));
         System.out.println("SHA-1: " +getSecurePassword(text, salt, "SHA-1"));
